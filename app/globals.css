@@ -1,26 +1,37 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Cores e fontes do protótipo (Figma) */
+@theme {
+  --color-brasa: #e8620c;
+  --color-brasa-escura: #c9520a;
+  --color-brasa-clara: #fff3e8;
+  --color-ouro: #f6b73c;
+  --color-carvao: #1c1310;
+  --color-creme: #faf7f2;
+  --color-borda: #ece6de;
+  --color-texto: #1f1a17;
+  --color-texto-suave: #6f6660;
 }
 
+/* Fontes carregadas com next/font no layout.tsx */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-jakarta);
+  --font-serif: var(--font-fraunces);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-creme);
+  color: var(--color-texto);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Container centralizado usado em todas as páginas.
+   Fica no @layer components para as classes do Tailwind (py-10, pb-3...) continuarem funcionando */
+@layer components {
+  .container-site {
+    width: 100%;
+    max-width: 1040px;
+    margin-inline: auto;
+    padding-inline: 24px;
+  }
 }
